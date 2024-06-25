@@ -70,14 +70,7 @@ function Add({url}) {
           <p>Product category</p>
           <select onChange={onChangeHandler} name="category" >
 
-            <option  value="Salad"></option>
-            <option value="Rolls"></option>
-            <option  value="Desert"></option>
-            <option value="Sandwitch"></option>
-            <option value="Cake"></option>
-            <option value="Pure Veg"></option>
-            <option value="Pasta"></option>
-            <option value="Noodles"></option>
+            
 
             <option value="Salad">Salad</option>
             <option value="Rolls">Rolls</option>
