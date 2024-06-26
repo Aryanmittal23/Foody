@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 import { connect , disconnect } from "mongoose";
 
-export async function connectdb(){
+export async function connectDB(){
     try{
-        await connect("mongodb+srv://foodwebsite:foodwebsite123@cluster0.11jx5fm.mongodb.net");
+        await connect("mongodb+srv://foody:foody@cluster0.k5ol8ax.mongodb.net/foody");
         console.log("done connection")
     }
     catch(error){
