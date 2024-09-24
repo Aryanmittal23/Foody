@@ -1,22 +1,62 @@
-.app-download{
-    margin:auto auto;
+.app-download {
+    margin: auto auto;
     margin-top: 100px;
-    font-size: max(3vw,20px);
+    font-size: max(3vw, 20px);
     text-align: center;
     font-weight: 500;
 }
-.app-download-platforms{
+
+.app-download-platforms {
     display: flex;
     justify-content: center;
-    gap:max(2vw,10px);
+    gap: max(2vw, 10px);
     margin-top: 40px;
 }
-.app-download-platforms img{
-    width: max(30vw,120px);
+
+.app-download-platforms img {
+    width: max(30vw, 120px);
     max-width: 180px;
     transition: 0.5s;
     cursor: pointer;
 }
-.app-download-platforms img:hover{
+
+.app-download-platforms img:hover {
     transform: scale(1.05);
+}
+
+/* Media Queries for Smaller Devices */
+
+/* For tablets and medium devices (width up to 768px) */
+@media (max-width: 768px) {
+    .app-download {
+        margin-top: 80px;
+        font-size: max(4vw, 18px);
+    }
+
+    .app-download-platforms {
+        flex-direction: column; /* Stack the platforms vertically */
+        gap: 20px; /* Increase the gap between items */
+    }
+
+    .app-download-platforms img {
+        width: max(40vw, 100px);
+        max-width: 150px;
+    }
+}
+
+/* For mobile devices (width up to 480px) */
+@media (max-width: 480px) {
+    .app-download {
+        margin-top: 60px;
+        font-size: max(5vw, 16px);
+    }
+
+    .app-download-platforms {
+        gap: 15px; /* Reduce the gap for small screens */
+    }
+
+    .app-download-platforms img {
+        width: max(50vw, 80px);
+        max-width: 120px;
+    }
 }
