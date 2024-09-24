@@ -1,12 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './LoginPopup.css';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
-import axios from 'axios'
+import axios from "axios"
 function LoginPopup({setShowLogin}) {
 
-  const {url,setToken} = useContext(StoreContext)
-
+    const {url,settoken} = useContext(StoreContext)
     const [currState,setCurrState]=useState('Login')
     const [data,setData] = useState({
       name:"",
@@ -14,33 +13,33 @@ function LoginPopup({setShowLogin}) {
       password:""
     })
 
-    const onChangeHandler = (event)=>{
+    const onChangeHandler = (event) =>{
       const name = event.target.name;
       const value = event.target.value;
       setData(data=>({...data,[name]:value}))
     }
+  const onLogin = async(event)=>{
+   event.preventDefault()
+   let newUrl = url;
+   if(currState=="Login"){
+    newUrl += "/api/user/login"
+   }
+   else{
+    newUrl += "/api/user/register"
+   }
+   const response = await axios.post(newUrl,data);
 
-    const onLogin = async(event) =>{
-      event.preventDefault()
-      let newUrl = url;
-      if(currState === "Login"){
-        newUrl += "/api/user/login"
-      }
-      else{
-        newUrl += "/api/user/register"
-      }
-
-      const response =await axios.post(newUrl,data)
-
-      if(response.data.success){
-        setToken(response.data.token)
-        localStorage.setItem("token",response.data.token);
-        setShowLogin(false)
-      }
-      else{
-        alert(response.data.message)
-      }
-    }
+   if(response.data.success){
+    settoken(response.data.token);
+    localStorage.setItem("token",response.data.token)
+    setShowLogin(false)
+   }else{
+    alert(response.data.message)
+   }
+  }
+    useEffect(()=>{
+      console.log(data);
+    },[data])
 
   return (
     <div className='login-popup'>
