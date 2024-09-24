@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Model } from "mongoose";
+
 
 const foodschema = new mongoose.Schema({
     name:{
